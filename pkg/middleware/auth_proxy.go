@@ -38,23 +38,24 @@ func initContextWithAuthProxy(ctx *m.ReqContext, orgId int64) bool {
 			return true
 		}
 
-		if setting.AuthProxyAutoSignUp {
-			cmd := getCreateUserCommandForProxyAuth(proxyHeaderValue)
-			if setting.LdapEnabled {
-				cmd.SkipOrgSetup = true
-			}
-
-			if err := bus.Dispatch(cmd); err != nil {
-				ctx.Handle(500, "Failed to create user specified in auth proxy header", err)
-				return true
-			}
-			query = &m.GetSignedInUserQuery{UserId: cmd.Result.Id, OrgId: orgId}
-			if err := bus.Dispatch(query); err != nil {
-				ctx.Handle(500, "Failed find user after creation", err)
-				return true
-			}
-		} else {
+		if !setting.AuthProxyAutoSignUp {
 			return false
+		}
+
+		cmd := getCreateUserCommandForProxyAuth(proxyHeaderValue)
+		if setting.LdapEnabled {
+			cmd.SkipOrgSetup = true
+		}
+
+		if err := bus.Dispatch(cmd); err != nil {
+			ctx.Handle(500, "Failed to create user specified in auth proxy header", err)
+			return true
+		}
+
+		query = &m.GetSignedInUserQuery{UserId: cmd.Result.Id, OrgId: orgId}
+		if err := bus.Dispatch(query); err != nil {
+			ctx.Handle(500, "Failed find user after creation", err)
+			return true
 		}
 	}
 
@@ -109,7 +110,7 @@ var syncGrafanaUserWithLdapUser = func(ctx *m.ReqContext, query *m.GetSignedInUs
 
 			for _, server := range ldapCfg.Servers {
 				author := login.NewLdapAuthenticator(server)
-				if err := author.SyncSignedInUser(query.Result); err != nil {
+				if err := author.SyncSignedInUser(ctx, query.Result); err != nil {
 					return err
 				}
 			}
