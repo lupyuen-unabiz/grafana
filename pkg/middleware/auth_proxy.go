@@ -109,8 +109,8 @@ var syncGrafanaUserWithLdapUser = func(ctx *m.ReqContext, query *m.GetSignedInUs
 			ldapCfg := login.LdapCfg
 
 			for _, server := range ldapCfg.Servers {
-				author := login.NewLdapAuthenticator(server)
-				if err := author.SyncSignedInUser(ctx, query.Result); err != nil {
+				auther := login.NewLdapAuthenticator(server)
+				if err := auther.SyncSignedInUser(ctx, query.Result); err != nil {
 					return err
 				}
 			}
