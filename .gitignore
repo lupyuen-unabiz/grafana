@@ -63,5 +63,5 @@ debug.test
 *.orig
 
 # Local settings
-.env
+/.env
 /pkg/cmd/grafana-server/conf/custom.ini
