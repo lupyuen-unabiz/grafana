@@ -11,8 +11,10 @@ resources:
   memory_gb: 0.5
   disk_size_gb: 10
 
+# Must use an unprotected URL for liveness and readiness checks
+
 liveness_check:
-  #path: "/liveness_check"
+  path: "/login"
   check_interval_sec: 300
   timeout_sec: 10
   failure_threshold: 10
@@ -20,12 +22,12 @@ liveness_check:
   initial_delay_sec: 300
 
 readiness_check:
-  #path: "/readiness_check"
-  check_interval_sec: 60
-  timeout_sec: 10
+  path: "/login"
+  check_interval_sec: 300
+  timeout_sec: 300
   failure_threshold: 10
   success_threshold: 2
-  app_start_timeout_sec: 300
+  app_start_timeout_sec: 3600
 
 # Define credentials as environment variables
 #includes:
