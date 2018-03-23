@@ -1,12 +1,12 @@
 package sqlstore
 
 import (
-	"time"
+	//// TODO Lup Yuen: "time"
 
 	"github.com/go-xorm/xorm"
 	"github.com/grafana/grafana/pkg/bus"
 	"github.com/grafana/grafana/pkg/log"
-	sqlite3 "github.com/mattn/go-sqlite3"
+	//// TODO Lup Yuen: sqlite3 "github.com/mattn/go-sqlite3"
 )
 
 type DBSession struct {
@@ -40,6 +40,7 @@ func inTransactionWithRetry(callback dbTransactionFunc, retry int) error {
 
 	err = callback(sess)
 
+	/*  TODO Lup Yuen
 	// special handling of database locked errors for sqlite, then we can retry 3 times
 	if sqlError, ok := err.(sqlite3.Error); ok && retry < 5 {
 		if sqlError.Code == sqlite3.ErrLocked {
@@ -49,6 +50,7 @@ func inTransactionWithRetry(callback dbTransactionFunc, retry int) error {
 			return inTransactionWithRetry(callback, retry+1)
 		}
 	}
+	*/
 
 	if err != nil {
 		sess.Rollback()
