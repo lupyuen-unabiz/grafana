@@ -242,3 +242,75 @@ t=2018-03-23T12:38:41+0800 lvl=info msg="Initializing CleanUpService" logger=cle
 t=2018-03-23T12:38:41+0800 lvl=eror msg="Startup failed" error="Notification service failed to initialize. error: html/template: pattern matches no files: `/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/public/emails/*.html`"
 t=2018-03-23T12:38:41+0800 lvl=info msg="Initializing Alerting" logger=alerting.engine
 t=2018-03-23T12:38:41+0800 lvl=info msg="Shutdown started" logger=server code=1 reason="startup error"
+t=2018-03-23T12:42:42+0800 lvl=info msg="Starting Grafana" logger=server version=5.1.0-pre1 commit=63465fd compiled=2018-03-23T02:19:56+0800
+t=2018-03-23T12:42:42+0800 lvl=info msg="Config loaded from" logger=settings file=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/conf/defaults.ini
+t=2018-03-23T12:42:42+0800 lvl=info msg="Path Home" logger=settings path=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server
+t=2018-03-23T12:42:42+0800 lvl=info msg="Path Data" logger=settings path=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/data
+t=2018-03-23T12:42:42+0800 lvl=info msg="Path Logs" logger=settings path=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/data/log
+t=2018-03-23T12:42:42+0800 lvl=info msg="Path Plugins" logger=settings path=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/data/plugins
+t=2018-03-23T12:42:42+0800 lvl=info msg="Path Provisioning" logger=settings path=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/conf/provisioning
+t=2018-03-23T12:42:42+0800 lvl=info msg="App mode production" logger=settings
+t=2018-03-23T12:42:42+0800 lvl=info msg="Initializing DB" logger=sqlstore dbtype=sqlite3
+t=2018-03-23T12:42:42+0800 lvl=info msg="Starting DB migration" logger=migrator
+t=2018-03-23T12:42:42+0800 lvl=info msg="Executing migration" logger=migrator id="copy data account to org"
+t=2018-03-23T12:42:42+0800 lvl=info msg="Skipping migration condition not fulfilled" logger=migrator id="copy data account to org"
+t=2018-03-23T12:42:42+0800 lvl=info msg="Executing migration" logger=migrator id="copy data account_user to org_user"
+t=2018-03-23T12:42:42+0800 lvl=info msg="Skipping migration condition not fulfilled" logger=migrator id="copy data account_user to org_user"
+t=2018-03-23T12:42:42+0800 lvl=info msg="Starting plugin search" logger=plugins
+t=2018-03-23T12:42:42+0800 lvl=info msg="Initializing CleanUpService" logger=cleanup
+t=2018-03-23T12:42:42+0800 lvl=info msg="Initializing Alerting" logger=alerting.engine
+t=2018-03-23T12:42:42+0800 lvl=info msg="Initializing Stream Manager"
+t=2018-03-23T12:42:42+0800 lvl=info msg="Initializing HTTP Server" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2018-03-23T12:43:03+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/admin status=302 remote_addr=[::1] time_ms=1 size=29 referer=
+t=2018-03-23T12:47:09+0800 lvl=info msg="Shutdown started" logger=server code=0 reason="system signal: interrupt"
+t=2018-03-23T12:47:09+0800 lvl=info msg="Stopped HTTP server" logger=http.server
+t=2018-03-23T12:47:09+0800 lvl=info msg="Stopped Stream Manager"
+t=2018-03-23T12:47:09+0800 lvl=info msg="Stopped Alerting" logger=alerting.engine reason="context canceled"
+t=2018-03-23T12:47:09+0800 lvl=info msg="Stopped CleanUpService" logger=cleanup reason="context canceled"
+t=2018-03-23T12:47:09+0800 lvl=info msg="Stopped Plugins" logger=plugins error="context canceled"
+t=2018-03-23T12:47:09+0800 lvl=info msg="Grafana shutdown completed." code=0
+t=2018-03-23T12:49:22+0800 lvl=info msg="Starting Grafana" logger=server version=5.1.0-pre1 commit=63465fd compiled=2018-03-23T02:19:56+0800
+t=2018-03-23T12:49:22+0800 lvl=info msg="Config loaded from" logger=settings file=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/conf/defaults.ini
+t=2018-03-23T12:49:22+0800 lvl=info msg="Path Home" logger=settings path=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server
+t=2018-03-23T12:49:22+0800 lvl=info msg="Path Data" logger=settings path=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/data
+t=2018-03-23T12:49:22+0800 lvl=info msg="Path Logs" logger=settings path=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/data/log
+t=2018-03-23T12:49:22+0800 lvl=info msg="Path Plugins" logger=settings path=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/data/plugins
+t=2018-03-23T12:49:22+0800 lvl=info msg="Path Provisioning" logger=settings path=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/conf/provisioning
+t=2018-03-23T12:49:22+0800 lvl=info msg="App mode production" logger=settings
+t=2018-03-23T12:49:22+0800 lvl=info msg="Initializing DB" logger=sqlstore dbtype=sqlite3
+t=2018-03-23T12:49:22+0800 lvl=info msg="Starting DB migration" logger=migrator
+t=2018-03-23T12:49:22+0800 lvl=info msg="Executing migration" logger=migrator id="copy data account to org"
+t=2018-03-23T12:49:22+0800 lvl=info msg="Skipping migration condition not fulfilled" logger=migrator id="copy data account to org"
+t=2018-03-23T12:49:22+0800 lvl=info msg="Executing migration" logger=migrator id="copy data account_user to org_user"
+t=2018-03-23T12:49:22+0800 lvl=info msg="Skipping migration condition not fulfilled" logger=migrator id="copy data account_user to org_user"
+t=2018-03-23T12:49:22+0800 lvl=info msg="Starting plugin search" logger=plugins
+t=2018-03-23T12:49:22+0800 lvl=info msg="Initializing CleanUpService" logger=cleanup
+t=2018-03-23T12:49:22+0800 lvl=info msg="Initializing Alerting" logger=alerting.engine
+t=2018-03-23T12:49:22+0800 lvl=info msg="Initializing Stream Manager"
+t=2018-03-23T12:49:22+0800 lvl=info msg="Initializing HTTP Server" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2018-03-23T12:49:34+0800 lvl=info msg="Shutdown started" logger=server code=0 reason="system signal: interrupt"
+t=2018-03-23T12:49:34+0800 lvl=info msg="Stopped HTTP server" logger=http.server
+t=2018-03-23T12:49:34+0800 lvl=info msg="Stopped Plugins" logger=plugins error="context canceled"
+t=2018-03-23T12:49:34+0800 lvl=info msg="Stopped CleanUpService" logger=cleanup reason="context canceled"
+t=2018-03-23T12:49:34+0800 lvl=info msg="Stopped Stream Manager"
+t=2018-03-23T12:49:34+0800 lvl=info msg="Stopped Alerting" logger=alerting.engine reason="context canceled"
+t=2018-03-23T12:49:34+0800 lvl=info msg="Grafana shutdown completed." code=0
+t=2018-03-23T12:50:17+0800 lvl=info msg="Starting Grafana" logger=server version=5.1.0-pre1 commit=63465fd compiled=2018-03-23T02:19:56+0800
+t=2018-03-23T12:50:17+0800 lvl=info msg="Config loaded from" logger=settings file=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/conf/defaults.ini
+t=2018-03-23T12:50:17+0800 lvl=info msg="Path Home" logger=settings path=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server
+t=2018-03-23T12:50:17+0800 lvl=info msg="Path Data" logger=settings path=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/data
+t=2018-03-23T12:50:17+0800 lvl=info msg="Path Logs" logger=settings path=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/data/log
+t=2018-03-23T12:50:17+0800 lvl=info msg="Path Plugins" logger=settings path=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/data/plugins
+t=2018-03-23T12:50:17+0800 lvl=info msg="Path Provisioning" logger=settings path=/Users/Luppy/Go/src/github.com/grafana/grafana/pkg/cmd/grafana-server/conf/provisioning
+t=2018-03-23T12:50:17+0800 lvl=info msg="App mode production" logger=settings
+t=2018-03-23T12:50:17+0800 lvl=info msg="Initializing DB" logger=sqlstore dbtype=sqlite3
+t=2018-03-23T12:50:17+0800 lvl=info msg="Starting DB migration" logger=migrator
+t=2018-03-23T12:50:17+0800 lvl=info msg="Executing migration" logger=migrator id="copy data account to org"
+t=2018-03-23T12:50:17+0800 lvl=info msg="Skipping migration condition not fulfilled" logger=migrator id="copy data account to org"
+t=2018-03-23T12:50:17+0800 lvl=info msg="Executing migration" logger=migrator id="copy data account_user to org_user"
+t=2018-03-23T12:50:17+0800 lvl=info msg="Skipping migration condition not fulfilled" logger=migrator id="copy data account_user to org_user"
+t=2018-03-23T12:50:17+0800 lvl=info msg="Starting plugin search" logger=plugins
+t=2018-03-23T12:50:17+0800 lvl=info msg="Initializing CleanUpService" logger=cleanup
+t=2018-03-23T12:50:17+0800 lvl=info msg="Initializing Alerting" logger=alerting.engine
+t=2018-03-23T12:50:17+0800 lvl=info msg="Initializing Stream Manager"
+t=2018-03-23T12:50:17+0800 lvl=info msg="Initializing HTTP Server" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
