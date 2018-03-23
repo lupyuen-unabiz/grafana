@@ -28,11 +28,15 @@ import (
 	_ "github.com/grafana/grafana/pkg/tsdb/postgres"
 	_ "github.com/grafana/grafana/pkg/tsdb/prometheus"
 	_ "github.com/grafana/grafana/pkg/tsdb/testdata"
+
 )
 
-var version = "5.0.0"
-var commit = "NA"
-var buildstamp string
+/* TODO: Build generator:
+main.version=5.1.0-pre1 -X main.commit=63465fd -X main.buildstamp=1521742796 */
+
+var version = "5.1.0-pre1" // Was "5.0.0"
+var commit = "63465fd" // Was "NA"
+var buildstamp = "1521742796" // Was string
 var build_date string
 
 var configFile = flag.String("config", "", "path to config file")
