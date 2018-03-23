@@ -26,6 +26,9 @@ cp -r ${OLD_GOPATH}/src/${package}/* ${GOPATH}/src/${package}/
 echo ========= ${name} ========= "rm -rf ${GOPATH}/src/${package}/vendor/"
 rm -rf ${GOPATH}/src/${package}/vendor/
 
+echo ========= ${name} ========= "./scripts/go-get.sh"
+./scripts/go-get.sh
+
 # Set GCLOUD_PROJECT in .env
 export GCLOUD_PROJECT=
 . ../../../.env
