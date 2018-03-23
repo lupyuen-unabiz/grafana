@@ -314,3 +314,10 @@ t=2018-03-23T12:50:17+0800 lvl=info msg="Initializing CleanUpService" logger=cle
 t=2018-03-23T12:50:17+0800 lvl=info msg="Initializing Alerting" logger=alerting.engine
 t=2018-03-23T12:50:17+0800 lvl=info msg="Initializing Stream Manager"
 t=2018-03-23T12:50:17+0800 lvl=info msg="Initializing HTTP Server" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2018-03-23T12:53:59+0800 lvl=info msg="Shutdown started" logger=server code=0 reason="system signal: interrupt"
+t=2018-03-23T12:53:59+0800 lvl=info msg="Stopped HTTP server" logger=http.server
+t=2018-03-23T12:53:59+0800 lvl=info msg="Stopped Stream Manager"
+t=2018-03-23T12:53:59+0800 lvl=info msg="Stopped CleanUpService" logger=cleanup reason="context canceled"
+t=2018-03-23T12:53:59+0800 lvl=info msg="Stopped Plugins" logger=plugins error="context canceled"
+t=2018-03-23T12:53:59+0800 lvl=info msg="Stopped Alerting" logger=alerting.engine reason="context canceled"
+t=2018-03-23T12:53:59+0800 lvl=info msg="Grafana shutdown completed." code=0

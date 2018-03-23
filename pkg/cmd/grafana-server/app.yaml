@@ -1,0 +1,36 @@
+#service: grafana
+
+env: flex
+runtime: go1.10
+
+manual_scaling:
+  instances: 1
+
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+
+liveness_check:
+  #path: "/liveness_check"
+  check_interval_sec: 300
+  timeout_sec: 10
+  failure_threshold: 10
+  success_threshold: 2
+  initial_delay_sec: 300
+
+readiness_check:
+  #path: "/readiness_check"
+  check_interval_sec: 60
+  timeout_sec: 10
+  failure_threshold: 10
+  success_threshold: 2
+  app_start_timeout_sec: 300
+
+# Define credentials as environment variables
+#includes:
+#- env.yaml
+
+#skip_files:
+#- ^vendor/.*$
+#- ^vendor.zip$
