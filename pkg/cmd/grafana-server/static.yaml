@@ -1,0 +1,30 @@
+service: grafana-static
+
+runtime: go
+api_version: go1.6
+
+# For failfast functionality, please use the 'X-AppEngine-FailFast' header on requests made to this service.
+# Default class for manual scaling is B2
+# instance_class: B4
+manual_scaling:
+  instances: 1
+
+# If a service has an /_ah/start handler, it should be listed first.
+handlers:
+
+- url: /_ah/start
+  script: _go_app
+
+- url: /_ah/.*
+  script: _go_app
+  
+- url: /public
+  static_dir: public
+
+skip_files:
+- ^conf$
+- ^data$
+- ^scripts$
+- ^app\.yaml$
+- ^main\.go$
+- ^server\.go$

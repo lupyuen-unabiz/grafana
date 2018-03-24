@@ -1,0 +1,5 @@
+dispatch:
+
+# For better performance, route static files to the static instance
+- url: "*/public/*"
+  service: grafana-static
