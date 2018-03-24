@@ -59,7 +59,12 @@ func (hs *HttpServer) Start(ctx context.Context) error {
 	listenAddr := fmt.Sprintf("%s:%s", setting.HttpAddr, setting.HttpPort)
 	hs.log.Info("Initializing HTTP Server", "address", listenAddr, "protocol", setting.Protocol, "subUrl", setting.AppSubUrl, "socket", setting.SocketPath)
 
-	hs.httpSrv = &http.Server{Addr: listenAddr, Handler: hs.macaron}
+	hs.httpSrv = &http.Server{Addr: listenAddr, Handler: hs.macaron,
+		//// TODO Lup Yuen: Handle failure to connect errors in AppEngine
+		ReadTimeout:  5 * time.Second,
+		WriteTimeout: 10 * time.Second,
+		IdleTimeout:  120 * time.Second,
+	}
 	switch setting.Protocol {
 	case setting.HTTP:
 		err = hs.httpSrv.ListenAndServe()

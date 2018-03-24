@@ -1,4 +1,5 @@
 // +build go1.6
+// +build !darwin
 
 package main
 
