@@ -54,3 +54,10 @@ echo GOPATH=${GOPATH}
 # echo 'export PATH=$PATH:$GOROOT/bin' >>~/.zshrc
 # echo 'export GOPATH=$GOROOT/bin' >>~/.zshrc
 # go get -u google.golang.org/appengine
+
+# bin/grafana-cli --pluginsDir ./public/app/plugins plugins install grafana-worldmap-panel
+# bin/grafana-cli --pluginsDir ./public/app/plugins plugins install satellogic-3d-globe-panel
+# bin/grafana-cli --pluginsDir ./public/app/plugins plugins install jdbranham-diagram-panel
+# bin/grafana-cli --pluginsDir ./public/app/plugins plugins install camptocamp-prometheus-alertmanager-datasource
+# bin/grafana-cli --pluginsDir ./public/app/plugins plugins install fzakaria-simple-annotations-datasource
+# bin/grafana-cli --pluginsDir ./public/app/plugins plugins install grafana-simple-json-datasource
