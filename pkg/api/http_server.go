@@ -46,6 +46,42 @@ func NewHTTPServer() *HttpServer {
 	}
 }
 
+// tcpKeepAliveListener sets TCP keep-alive timeouts on accepted
+// connections. It's used by ListenAndServe and ListenAndServeTLS so
+// dead TCP connections (e.g. closing laptop mid-download) eventually
+// go away.
+type tcpKeepAliveListener struct {
+	*net.TCPListener
+}
+
+func (ln tcpKeepAliveListener) Accept() (net.Conn, error) {
+	tc, err := ln.AcceptTCP()
+	if err != nil {
+		return nil, err
+	}
+	//// TODO Lup Yuen: Disable keep alive
+	tc.SetKeepAlive(false)
+	// tc.SetKeepAlivePeriod(3 * time.Minute)
+	return tc, nil
+}
+
+// ListenAndServe listens on the TCP network address srv.Addr and then
+// calls Serve to handle requests on incoming connections.
+// Accepted connections are configured to enable TCP keep-alives.
+// If srv.Addr is blank, ":http" is used.
+// ListenAndServe always returns a non-nil error.
+func ListenAndServe(srv *http.Server) error {
+	addr := srv.Addr
+	if addr == "" {
+		addr = ":http"
+	}
+	ln, err := net.Listen("tcp", addr)
+	if err != nil {
+		return err
+	}
+	return srv.Serve(tcpKeepAliveListener{ln.(*net.TCPListener)})
+}
+
 func (hs *HttpServer) Start(ctx context.Context) error {
 	var err error
 
@@ -67,7 +103,9 @@ func (hs *HttpServer) Start(ctx context.Context) error {
 	}
 	switch setting.Protocol {
 	case setting.HTTP:
-		err = hs.httpSrv.ListenAndServe()
+		//// TODO Lup Yuen: Handle failure to connect errors in AppEngine
+		//// err = hs.httpSrv.ListenAndServe()
+		err = ListenAndServe(hs.httpSrv) ////  TODO Lup Yuen: Disable keep alive
 		if err == http.ErrServerClosed {
 			hs.log.Debug("server was shutdown gracefully")
 			return nil
