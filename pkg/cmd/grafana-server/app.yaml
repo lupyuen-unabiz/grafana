@@ -1,4 +1,4 @@
-#service: grafana
+service: grafana
 
 env: flex
 runtime: go1.10
@@ -12,7 +12,7 @@ manual_scaling:
 
 resources:
   cpu: 1
-  memory_gb: 1
+  memory_gb: 0.5
   disk_size_gb: 10
 
 # Must use an unprotected URL for liveness and readiness checks
